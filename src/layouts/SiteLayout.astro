@@ -1,0 +1,206 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const siteName = "DiscussionBridge";
+const title = Astro.props.title ? `${Astro.props.title} | ${siteName}` : siteName;
+const description = Astro.props.description
+  ?? "DiscussionBridge connects source-controlled publishing with durable Discourse community discussion.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <style is:global>
+      :root {
+        color-scheme: light;
+        --bg: #f7f8fb;
+        --panel: #ffffff;
+        --text: #17202a;
+        --muted: #5f6f82;
+        --line: #d9e2ea;
+        --accent: #116a7b;
+        --accent-strong: #0b5360;
+        --accent-soft: #e8f5f7;
+        --ink: #24313d;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        background: var(--bg);
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Segoe UI", Arial, sans-serif;
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--accent-strong);
+      }
+
+      a:hover {
+        color: var(--accent);
+      }
+
+      .site-header {
+        border-bottom: 1px solid var(--line);
+        background: var(--panel);
+      }
+
+      .site-header__inner,
+      .site-footer__inner,
+      main {
+        width: min(100% - 40px, 1080px);
+        margin-inline: auto;
+      }
+
+      .site-header__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 64px;
+        gap: 24px;
+      }
+
+      .brand {
+        color: var(--text);
+        font-size: 1.05rem;
+        font-weight: 750;
+        text-decoration: none;
+      }
+
+      .site-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .site-nav a {
+        color: var(--ink);
+        font-size: 0.95rem;
+        font-weight: 650;
+        text-decoration: none;
+      }
+
+      main {
+        min-height: calc(100vh - 138px);
+        padding-block: 40px 64px;
+      }
+
+      .site-footer {
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        background: var(--panel);
+      }
+
+      .site-footer__inner {
+        padding-block: 20px;
+      }
+
+      .site-footer p {
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.15;
+        letter-spacing: 0;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: var(--accent-strong);
+        font-size: 0.82rem;
+        font-weight: 750;
+        text-transform: uppercase;
+      }
+
+      .lede {
+        max-width: 740px;
+        color: var(--muted);
+        font-size: 1.15rem;
+      }
+
+      .content-list {
+        display: grid;
+        gap: 0;
+        margin: 32px 0 0;
+        padding: 0;
+        border-top: 1px solid var(--line);
+        list-style: none;
+      }
+
+      .content-list li {
+        padding-block: 20px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .content-list h2 {
+        margin: 0 0 6px;
+        font-size: 1.25rem;
+      }
+
+      .content-list p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .content-list a {
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      .content-list a:hover {
+        color: var(--accent);
+      }
+
+      @media (max-width: 640px) {
+        .site-header__inner {
+          align-items: flex-start;
+          flex-direction: column;
+          padding-block: 14px;
+        }
+
+        main {
+          padding-block-start: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="/">DiscussionBridge</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="/blog/">Blog</a>
+          <a href="/guides/">Community guides</a>
+          <a href="https://docs.discussionbridge.dev/">Docs</a>
+          <a href="https://demo.discussionbridge.dev/">Demos</a>
+          <a href="https://forum.discussionbridge.dev/">Community</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p>Publish clearly. Discuss openly. Preserve what the community learns.</p>
+      </div>
+    </footer>
+  </body>
+</html>

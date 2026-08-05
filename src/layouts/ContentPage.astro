@@ -1,0 +1,85 @@
+---
+import Discussion from "astro-discussion-bridge/Discussion.astro";
+import DiscussionSource from "astro-discussion-bridge/DiscussionSource.astro";
+import SiteLayout from "./SiteLayout.astro";
+
+interface Props {
+  frontmatter: Record<string, unknown> & {
+    title: string;
+    description?: string;
+    pubDate?: Date;
+    updatedDate?: Date;
+    tags?: string[];
+    discussionCommentsDisplay?: "simple" | "full" | "fullInteractive";
+  };
+  lane: "Blog" | "Community guide";
+}
+
+const { frontmatter, lane } = Astro.props;
+const display = frontmatter.discussionCommentsDisplay ?? "fullInteractive";
+const description = frontmatter.description ?? `${lane}: ${frontmatter.title}`;
+---
+
+<SiteLayout title={frontmatter.title} description={description}>
+  <article class="article">
+    <header class="article__header">
+      <p class="eyebrow">{lane}</p>
+      <h1>{frontmatter.title}</h1>
+      {frontmatter.description && <p class="lede">{frontmatter.description}</p>}
+      {(frontmatter.pubDate || frontmatter.updatedDate) && (
+        <p class="article__date">
+          {frontmatter.pubDate && (
+            <>Published {frontmatter.pubDate.toLocaleDateString("en-US", { dateStyle: "long" })}</>
+          )}
+          {frontmatter.pubDate && frontmatter.updatedDate && <> · </>}
+          {frontmatter.updatedDate && (
+            <>Updated {frontmatter.updatedDate.toLocaleDateString("en-US", { dateStyle: "long" })}</>
+          )}
+        </p>
+      )}
+    </header>
+
+    <DiscussionSource frontmatter={frontmatter} />
+
+    <div class="article__body">
+      <slot />
+    </div>
+
+    <Discussion frontmatter={frontmatter} display={display} />
+  </article>
+</SiteLayout>
+
+<style>
+  .article {
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
+  .article__header {
+    margin-block-end: 28px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.2rem, 7vw, 4.4rem);
+  }
+
+  .article__date {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .article__body :global(h2) {
+    margin-block-start: 2.25rem;
+  }
+
+  .article__body :global(p),
+  .article__body :global(li) {
+    font-size: 1.05rem;
+  }
+
+  .article__body :global(pre),
+  .article__body :global(table) {
+    overflow-x: auto;
+  }
+</style>

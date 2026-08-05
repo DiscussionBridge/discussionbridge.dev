@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (left, right) => right.data.pubDate.valueOf() - left.data.pubDate.valueOf(),
+);
+---
+
+<SiteLayout title="Blog" description="DiscussionBridge product thinking, field notes, and release work.">
+  <p class="eyebrow">Astro-managed lane</p>
+  <h1>Blog</h1>
+  <p class="lede">The site starts the conversation. Each post can publish a companion topic for public discussion.</p>
+
+  <ol class="content-list">
+    {posts.map((post) => (
+      <li>
+        <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+        <p>{post.data.description}</p>
+      </li>
+    ))}
+  </ol>
+</SiteLayout>

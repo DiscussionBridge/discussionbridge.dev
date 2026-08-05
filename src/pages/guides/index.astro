@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+const guides = (await getCollection("guides")).sort((left, right) =>
+  left.data.title.localeCompare(right.data.title)
+);
+---
+
+<SiteLayout title="Community Guides" description="Durable guidance developed in the DiscussionBridge Community.">
+  <p class="eyebrow">Discourse-managed lane</p>
+  <h1>Community guides</h1>
+  <p class="lede">The community develops knowledge in a wiki topic. DiscussionBridge publishes the reviewed result here for durable reading.</p>
+
+  {guides.length > 0 ? (
+    <ol class="content-list">
+      {guides.map((guide) => (
+        <li>
+          <h2><a href={`/guides/${guide.id}/`}>{guide.data.title}</a></h2>
+          <p>{guide.data.description}</p>
+        </li>
+      ))}
+    </ol>
+  ) : (
+    <p>The first community guide is being developed in the forum.</p>
+  )}
+</SiteLayout>
