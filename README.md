@@ -15,10 +15,10 @@ npx --no-install wrangler deploy --dry-run --config wrangler.jsonc
 `discussionbridge.dev`.
 
 The Astro adapter is consumed as the exact vendored prerelease input
-`vendor/astro-discussion-bridge-0.1.0-alpha.20260824.1.tgz`. Its recorded
+`vendor/astro-discussion-bridge-0.1.0-alpha.20260824.2.tgz`. Its recorded
 SHA-256 is
-`2aac43d6c945c3f67c4b5542271ed1cd99b534250fb14d62af559467fa1fe8a6`.
-The artifact contains 67 members and is 108,594 bytes. It is the qualified
+`7bb85f7658c5391b23ebf914cbe6fbac1bfa28c99bd7f64b5c7c51ad2e39940d`.
+The artifact contains 67 members and is 108,671 bytes. It is the qualified
 Alpha correction candidate; publication and release acceptance remain
 separate gates.
 Canonical adapter source remains in
