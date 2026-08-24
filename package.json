@@ -13,7 +13,10 @@
   },
   "dependencies": {
     "astro": "^7.1.1",
-    "astro-discussion-bridge": "file:vendor/astro-discussion-bridge-0.1.0.tgz",
+    "astro-discussion-bridge": "file:vendor/astro-discussion-bridge-0.1.0-alpha.20260824.1.tgz",
     "shiki": "^3.23.0"
+  },
+  "devDependencies": {
+    "wrangler": "4.123.0"
   }
 }
