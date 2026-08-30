@@ -37,5 +37,20 @@ commitment.
   produced a generated-module miss. No source defect was involved; one
   isolated rerun completed successfully.
 
-Production commit, push, deployment identity and public replay are recorded in
-the next checkpoint update after publication.
+## Publication receipt
+
+The public hierarchy and roadmap are committed as
+`38d2937` (`Present DiscussionBridge product family`), pushed to
+`origin/main`, and deployed to `discussionbridge.dev` as Cloudflare Worker
+version `4f33001f-6f53-4a28-9433-63a420ba6b6d`.
+
+Public replay proves:
+
+- the apex identifies DiscussionBridge as the family and The Bridge as the
+  flagship;
+- the exact seven-profile Alpha list appears in the approved order;
+- `/roadmap/` returns the public roadmap, includes Hugo, and carries the user-
+  input invitation; and
+- no planned platform origin was promoted merely by this site publication.
+
+The later checkpoint-only commit does not change deployed page output.
