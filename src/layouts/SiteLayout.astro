@@ -7,7 +7,7 @@ interface Props {
 const siteName = "DiscussionBridge";
 const title = Astro.props.title ? `${Astro.props.title} | ${siteName}` : siteName;
 const description = Astro.props.description
-  ?? "DiscussionBridge connects source-controlled publishing with durable Discourse community discussion.";
+  ?? "DiscussionBridge is a family of tools for publishing anywhere while keeping one durable Discourse discussion.";
 ---
 
 <!doctype html>
@@ -186,6 +186,7 @@ const description = Astro.props.description
       <div class="site-header__inner">
         <a class="brand" href="/">DiscussionBridge</a>
         <nav class="site-nav" aria-label="Primary navigation">
+          <a href="/roadmap/">Roadmap</a>
           <a href="/blog/">Blog</a>
           <a href="/guides/">Community guides</a>
           <a href="https://docs.discussionbridge.dev/">Docs</a>

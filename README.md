@@ -3,6 +3,19 @@
 This repository independently owns the public product site at
 `discussionbridge.dev`.
 
+The public product hierarchy is:
+
+- **DiscussionBridge** — the product family;
+- **The Bridge** — the Discourse-powered flagship and reference experience;
+- **DiscussionBridge for Astro + Starlight** — the inaugural standalone
+  platform product, Bridge-enhanced by choice; and
+- focused Network, Migration, Identity and Deployment capability families.
+
+The public roadmap is at `/roadmap/`. It records seven Alpha profiles with
+Hugo at the end of Alpha before the Beta feature lock, then invites concrete
+user workflows to shape later additions. It is product direction, not release
+or implementation authority.
+
 ## Local Verification
 
 ```powershell

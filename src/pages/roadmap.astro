@@ -1,0 +1,69 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+const profiles = [
+  ["01", "Astro", "Plain Astro plus the inaugural Astro + Starlight product and stock comparison controls."],
+  ["02", "Ghost", "A stock publishing workflow followed by a purpose-built DiscussionBridge presentation."],
+  ["03", "Hugo", "A late-Alpha static publishing adapter completed before the Beta feature lock."],
+  ["04", "Statamic DB", "The shared Statamic addon proven independently against database-backed content."],
+  ["05", "Statamic Flat", "The same addon proven independently against file-backed content."],
+  ["06", "WordPress", "A native WordPress integration that preserves familiar platform presentation."],
+  ["07", "The Bridge — Discourse as Publisher", "The flagship using the same downloadable DiscussionBridge plugin as every operator."],
+];
+---
+
+<SiteLayout title="Roadmap" description="The public DiscussionBridge roadmap: Alpha profiles, focused capabilities, and demand-led additions.">
+  <section class="roadmap-hero">
+    <p class="eyebrow">Draft public roadmap</p>
+    <h1>Build the durable discussion first.</h1>
+    <p class="lede">DiscussionBridge grows from one coherent content-bridging foundation. The roadmap shows direction, not a promise that every candidate will be built.</p>
+  </section>
+
+  <section class="roadmap-section" aria-labelledby="alpha-roadmap">
+    <p class="eyebrow">Alpha</p>
+    <h2 id="alpha-roadmap">Seven live publishing profiles</h2>
+    <div class="profile-list">
+      {profiles.map(([number, name, description]) => (
+        <article><strong>{number}</strong><div><h3>{name}</h3><p>{description}</p></div></article>
+      ))}
+    </div>
+  </section>
+
+  <section class="roadmap-grid" aria-label="Future DiscussionBridge capability families">
+    <article><p class="eyebrow">Advanced profiles</p><h2>More ways to use proven adapters</h2><p>Statamic Multi-Site, Statamic SSG, and WordPress Multisite extend existing integration families when their identity and isolation boundaries are proven.</p></article>
+    <article><p class="eyebrow">DiscussionBridge Network</p><h2>Forums connected by choice</h2><p>Optional Forum Connections let Discourse communities discover and present canonical discussions without creating competing comment histories.</p></article>
+    <article><p class="eyebrow">Migration</p><h2>Bring existing discussion forward</h2><p>Separate migration tools can import legacy comments and establish ordinary durable Bridge Records without turning the core plugin into a bulk migration engine.</p></article>
+    <article><p class="eyebrow">Identity</p><h2>Separate because trust matters</h2><p>Discourse network identity and platform-to-Discourse login belong in deliberately bounded optional capabilities, never silently inside content adapters.</p></article>
+    <article><p class="eyebrow">Candidate adapters</p><h2>Driven by demonstrated need</h2><p>Drupal, Next.js, Nuxt, SvelteKit, and other candidates move forward when real users bring concrete publishing workflows worth supporting.</p></article>
+    <article><p class="eyebrow">Deployment capabilities</p><h2>Run adapters where they fit</h2><p>Cloudflare Workers and similar runtimes may host suitable adapters or presentation services without becoming publishing-platform entries.</p></article>
+  </section>
+
+  <section class="invitation">
+    <p class="eyebrow">The roadmap is a conversation</p>
+    <h2>Tell us what your publishing workflow needs.</h2>
+    <p>Named platforms, representative content, migration constraints, community structure, and willingness to test are more useful than speculative feature lists.</p>
+    <a href="https://forum.discussionbridge.dev/">Help shape DiscussionBridge</a>
+  </section>
+</SiteLayout>
+
+<style>
+  .roadmap-hero { max-width: 900px; padding-block: 28px 44px; }
+  .roadmap-hero h1 { max-width: 820px; margin: 0; font-size: clamp(2.8rem, 8vw, 5.8rem); }
+  .roadmap-section { padding-block: 42px; border-top: 1px solid var(--line); }
+  .roadmap-section > h2, .invitation h2 { margin: 0; font-size: clamp(2rem, 4.5vw, 3.4rem); }
+  .profile-list { display: grid; margin-top: 26px; border-top: 1px solid var(--line); }
+  .profile-list article { display: grid; grid-template-columns: 48px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .profile-list strong { color: var(--accent-strong); font-size: 0.78rem; letter-spacing: 0.08em; }
+  .profile-list h3, .profile-list p { margin: 0; }
+  .profile-list h3 { font-size: 1.25rem; }
+  .profile-list p { margin-top: 4px; color: var(--muted); }
+  .roadmap-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; padding-block: 26px 54px; }
+  .roadmap-grid article { padding: 26px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); }
+  .roadmap-grid h2, .roadmap-grid p { margin-top: 0; }
+  .roadmap-grid h2 { font-size: 1.35rem; }
+  .roadmap-grid p:last-child { margin-bottom: 0; color: var(--muted); }
+  .invitation { padding: 42px; border-radius: 20px; background: var(--accent-soft); }
+  .invitation p:not(.eyebrow) { max-width: 760px; color: var(--muted); }
+  .invitation a { font-weight: 750; }
+  @media (max-width: 720px) { .roadmap-grid { grid-template-columns: 1fr; } .invitation { padding: 26px; } }
+</style>
