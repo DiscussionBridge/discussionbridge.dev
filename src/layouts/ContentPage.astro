@@ -16,7 +16,7 @@ interface Props {
 }
 
 const { frontmatter, lane } = Astro.props;
-const display = frontmatter.discussionCommentsDisplay ?? "fullInteractive";
+const display = frontmatter.discussionCommentsDisplay ?? "full";
 const description = frontmatter.description ?? `${lane}: ${frontmatter.title}`;
 ---
 

@@ -10,7 +10,7 @@ discussionTarget: community
 discussionTargets: community
 discussionPublishTargets: community
 discussionPrimaryTarget: community
-discussionCommentsDisplay: fullInteractive
+discussionCommentsDisplay: full
 discussionSync: true
 discussionTags:
   - discussionbridge

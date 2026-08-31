@@ -20,7 +20,7 @@ export default defineConfig({
         },
       },
       comments: {
-        display: "fullInteractive",
+        display: "full",
       },
       publishOnBuild: {
         enabled: false,
