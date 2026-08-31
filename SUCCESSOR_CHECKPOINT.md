@@ -54,3 +54,29 @@ Public replay proves:
 - no planned platform origin was promoted merely by this site publication.
 
 The later checkpoint-only commit does not change deployed page output.
+
+## 2026-08-30 community discussion repair
+
+The apex intentionally continues to use `forum.discussionbridge.dev` as the
+DiscussionBridge community forum. Topic 37 remains the canonical discussion
+for `/blog/every-connection-has-a-job/`. The forum was missing
+`discussionbridge.dev` from its Discourse embeddable-host registry, so the
+full-app iframe was refused. Embeddable host ID 5 now admits the exact apex
+origin to category 5.
+
+The apex does not require the receiving DiscussionBridge plugin. Its comments
+default and the blog page now use the plugin-free `full` presentation instead
+of claiming `fullInteractive`. The live blog renders the forum-owned reply
+list and links to topic 37 without a refused frame.
+
+The roadmap now links to dedicated community topic 45,
+`DiscussionBridge Roadmap: What Should We Build Next?`, authored by
+`discussbridge-bot` in category 5. The topic invites evidence about platforms,
+publishing workflows, migration constraints, community boundaries and testing
+interest.
+
+Source commit `01df498` (`Repair community discussions on the apex site`) is
+equal to `origin/main` and is deployed as Cloudflare Worker version
+`14e21be6-aa95-445f-a276-7a0b5d745b45`. The isolated build produced six pages.
+Public browser replay confirmed the repaired blog discussion and the exact
+roadmap-topic link.
