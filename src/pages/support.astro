@@ -1,0 +1,148 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+const supportCategory = "https://forum.discussionbridge.dev/c/alpha-support/7";
+const supportEmail = "alphasupport@discussionbridge.dev";
+---
+
+<SiteLayout title="Alpha Support" description="Get help with DiscussionBridge Alpha, report a problem, or share what you are learning.">
+  <section class="support-hero">
+    <div>
+      <p class="eyebrow">DiscussionBridge Alpha Support</p>
+      <h1>Bring the problem.<br /><span>Keep the learning.</span></h1>
+      <p class="lede">
+        Alpha support lives with the community so a useful answer can help the next
+        operator too. Start with the forum, whether you are installing The Bridge,
+        connecting a platform, testing a demo, or finding an edge we have not seen yet.
+      </p>
+      <div class="actions">
+        <a class="button" href={supportCategory}>Visit Alpha Support</a>
+        <a class="button secondary" href="https://docs.discussionbridge.dev/support-and-feedback/">Read support guidance</a>
+      </div>
+    </div>
+    <aside class="support-status" aria-labelledby="support-status-heading">
+      <p class="eyebrow">Support status</p>
+      <h2 id="support-status-heading">The forum is open.</h2>
+      <dl>
+        <div><dt>Community support</dt><dd><span class="status live">Live</span></dd></div>
+        <div><dt>Email intake</dt><dd><span class="status pending">Being connected</span></dd></div>
+        <div><dt>Alpha service level</dt><dd>Best effort</dd></div>
+      </dl>
+      <p>Email intake at <strong>{supportEmail}</strong> will open after its forum route is verified.</p>
+    </aside>
+  </section>
+
+  <section class="path-section" aria-labelledby="choose-path">
+    <p class="eyebrow">Choose the shortest path</p>
+    <h2 id="choose-path">Start with what you know.</h2>
+    <div class="path-grid">
+      <article>
+        <span>01</span>
+        <h3>I need help</h3>
+        <p>Ask in Alpha Support for installation, configuration, adapter, demo, or workflow help. Screenshots and sanitized logs are welcome.</p>
+        <a href={supportCategory}>Ask the community <span aria-hidden="true">→</span></a>
+      </article>
+      <article>
+        <span>02</span>
+        <h3>I found a problem</h3>
+        <p>Describe what happened, what you expected, and how to reproduce it. We will connect confirmed product work to the correct GitHub repository.</p>
+        <a href={supportCategory}>Report it in Alpha Support <span aria-hidden="true">→</span></a>
+      </article>
+      <article>
+        <span>03</span>
+        <h3>I have an idea</h3>
+        <p>Share the publishing problem and the outcome you need. Real workflows help us choose what belongs in DiscussionBridge next.</p>
+        <a href="https://forum.discussionbridge.dev/t/discussionbridge-roadmap-what-should-we-build-next/45">Join the roadmap discussion <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </section>
+
+  <section class="details" aria-labelledby="help-us-help">
+    <div>
+      <p class="eyebrow">A useful support request</p>
+      <h2 id="help-us-help">Help us see what you see.</h2>
+      <p>Include only what applies. A short, reproducible report is more useful than a large unsorted log.</p>
+    </div>
+    <ul class="checklist">
+      <li>Which DiscussionBridge product, adapter, and version you are using</li>
+      <li>Your publishing platform and Discourse versions, when known</li>
+      <li>The page, connection, presentation mode, or workflow involved</li>
+      <li>The exact steps that produced the result</li>
+      <li>What you expected and what happened instead</li>
+      <li>Sanitized error text, logs, screenshots, and relevant public URLs</li>
+    </ul>
+  </section>
+
+  <section class="privacy" aria-labelledby="keep-secrets-secret">
+    <div class="privacy__mark" aria-hidden="true">!</div>
+    <div>
+      <p class="eyebrow">Public support boundary</p>
+      <h2 id="keep-secrets-secret">Keep secrets, private content, and personal data out of support messages.</h2>
+      <p>
+        The Alpha Support category is public. When email intake opens, its messages are
+        intended to become forum support topics too. Assume the subject, message body,
+        links, and attachments may be publicly visible.
+      </p>
+      <p>Never send API keys, connection secrets, passwords, private server addresses, private content, database exports, access tokens, or unredacted configuration files.</p>
+    </div>
+  </section>
+
+  <section class="handoff" aria-labelledby="from-support-to-product">
+    <div>
+      <p class="eyebrow">From support to product work</p>
+      <h2 id="from-support-to-product">The conversation stays understandable.</h2>
+    </div>
+    <p>
+      Discourse preserves the question, discovery, and community answer. When a report
+      becomes confirmed product work, we link it to the appropriate GitHub issue so the
+      public support context and the formal engineering record remain connected.
+    </p>
+    <a href="https://github.com/DiscussionBridge">Explore DiscussionBridge on GitHub <span aria-hidden="true">→</span></a>
+  </section>
+</SiteLayout>
+
+<style>
+  .support-hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr); gap: clamp(34px, 7vw, 78px); align-items: end; padding-block: clamp(34px, 8vw, 86px); }
+  .support-hero h1 { max-width: 800px; margin: 0; font-size: clamp(3.2rem, 8vw, 6.8rem); letter-spacing: -.052em; line-height: .93; }
+  .support-hero h1 span { color: var(--accent); }
+  .support-hero .lede { margin-block: 26px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; padding: 10px 16px; border: 1px solid var(--accent); border-radius: 7px; background: var(--accent); color: #fff; font-weight: 750; text-decoration: none; }
+  .button:hover { color: #fff; background: var(--accent-strong); }
+  .button.secondary { color: var(--accent-strong); background: transparent; }
+  .button.secondary:hover { color: var(--accent-strong); background: var(--accent-soft); }
+  .support-status { padding: 28px; border: 1px solid var(--line); border-radius: 20px; background: var(--panel); box-shadow: 0 24px 60px rgb(23 32 42 / 8%); }
+  .support-status h2 { margin: 0 0 18px; font-size: 1.8rem; }
+  .support-status dl { margin: 0; border-block: 1px solid var(--line); }
+  .support-status dl div { display: flex; justify-content: space-between; gap: 18px; padding-block: 12px; border-bottom: 1px solid var(--line); }
+  .support-status dl div:last-child { border-bottom: 0; }
+  .support-status dt { color: var(--muted); }
+  .support-status dd { margin: 0; font-weight: 750; text-align: right; }
+  .support-status > p:last-child { margin: 18px 0 0; color: var(--muted); font-size: .9rem; }
+  .status { display: inline-flex; padding: 2px 9px; border-radius: 999px; font-size: .78rem; }
+  .status.live { color: #15543d; background: #e5f6ee; }
+  .status.pending { color: #73540d; background: #fff4cc; }
+  .path-section { padding-block: 54px; border-top: 1px solid var(--line); }
+  .path-section > h2, .details h2, .privacy h2, .handoff h2 { margin: 0; font-size: clamp(2rem, 4.7vw, 3.8rem); letter-spacing: -.032em; }
+  .path-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+  .path-grid article { display: flex; min-height: 300px; flex-direction: column; padding: 26px; border: 1px solid var(--line); border-radius: 18px; background: var(--panel); }
+  .path-grid article > span { color: var(--accent-strong); font-size: .76rem; font-weight: 800; letter-spacing: .08em; }
+  .path-grid h3 { margin: 12px 0 8px; font-size: 1.45rem; }
+  .path-grid p { margin: 0; color: var(--muted); }
+  .path-grid a { margin-top: auto; padding-top: 24px; font-weight: 750; }
+  .details { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(30px, 7vw, 80px); padding-block: 64px; }
+  .details > div > p:last-child { color: var(--muted); }
+  .checklist { display: grid; gap: 0; margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+  .checklist li { position: relative; padding: 14px 0 14px 34px; border-bottom: 1px solid var(--line); }
+  .checklist li::before { position: absolute; top: 14px; left: 0; color: var(--accent); content: "✓"; font-weight: 900; }
+  .privacy { display: grid; grid-template-columns: auto 1fr; gap: 24px; padding: clamp(28px, 5vw, 46px); border-radius: 22px; color: #fff; background: #18383e; }
+  .privacy__mark { display: grid; width: 50px; height: 50px; place-items: center; border: 2px solid #9ee4dc; border-radius: 50%; color: #9ee4dc; font-size: 1.5rem; font-weight: 900; }
+  .privacy .eyebrow { color: #9ee4dc; }
+  .privacy p:not(.eyebrow) { max-width: 860px; color: #d6e4e5; }
+  .privacy p:last-child { margin-bottom: 0; }
+  .handoff { display: grid; grid-template-columns: minmax(260px, .75fr) minmax(0, 1.25fr); gap: 34px 60px; align-items: start; padding-block: 70px 34px; border-bottom: 1px solid var(--line); }
+  .handoff > p { margin: 0; color: var(--muted); font-size: 1.06rem; }
+  .handoff > a { grid-column: 2; font-weight: 750; }
+  @media (max-width: 820px) { .support-hero, .details, .handoff { grid-template-columns: 1fr; } .handoff > a { grid-column: 1; } }
+  @media (max-width: 680px) { .path-grid { grid-template-columns: 1fr; } .path-grid article { min-height: 0; } .privacy { grid-template-columns: 1fr; } }
+</style>

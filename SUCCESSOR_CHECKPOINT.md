@@ -133,3 +133,24 @@ and `37296925-1fc0-4cec-929b-5568f87e2c78`. The Astro + Starlight demo source
 uses Starlight's native social icons, but its deployment remains pending the
 established protected credentialed build path; the public site was not
 replaced with a partial build.
+
+## 2026-09-01 public Alpha Support page
+
+The apex now has a dedicated `/support/` page and a primary-navigation Support
+link. The page routes installation, configuration, adapter, demo, workflow,
+and problem reports to the live public Alpha Support category at
+`https://forum.discussionbridge.dev/c/alpha-support/7`. It directs confirmed
+product work toward the appropriate DiscussionBridge GitHub repository without
+reviving the former Astro-only issue boundary.
+
+The page records `alphasupport@discussionbridge.dev` as **Being connected**,
+not as a live intake route. Do not change that status or add a `mailto:` link
+until an end-to-end message is proven to create the intended category topic.
+The page also warns that the category is public and that later email intake is
+intended to become public support topics; credentials, private content,
+personal data, unredacted configuration, and other protected material must not
+be sent.
+
+The isolated production build generated seven pages. Desktop and 390px mobile
+browser verification found no horizontal overflow, the intended live/pending
+status labels, the complete support paths, and the new Support navigation item.
