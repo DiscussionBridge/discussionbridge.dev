@@ -112,3 +112,24 @@ passed the Wrangler deployment dry run and is live as Cloudflare Worker version
 hero, eight-profile census including Statamic SSG, all three presentation
 modes, publisher-matrix route, themed-edition boundary and eight-profile
 roadmap, with no remaining public seven-profile heading.
+
+## 2026-09-01 community and social links
+
+The product site now exposes the DiscussionBridge community forum, Bluesky,
+Discord invite, Mastodon, Reddit and YouTube in a readable footer collection.
+X remains explicitly labeled `planned`; it is not presented as a live account
+or routed to a false destination. `SOCIAL_LINKS.md` is the durable site-level
+reference and also records the direct Discord community channel separately
+from the public join invitation.
+
+Source commit `72a5195` is pushed to `origin/main`. The six-page production
+build passed and Cloudflare Worker version
+`e8f56caf-e8e1-4d91-a9be-8cb7f5b3fccb` is live. Public HTTP replay returned
+200 and contained every intended destination plus the planned X label.
+
+The demo hub and docs received the same live destinations. Their deployed
+Worker versions are respectively `d9a19ce1-d5ff-4016-99a1-6a700c4506f0`
+and `37296925-1fc0-4cec-929b-5568f87e2c78`. The Astro + Starlight demo source
+uses Starlight's native social icons, but its deployment remains pending the
+established protected credentialed build path; the public site was not
+replaced with a partial build.
