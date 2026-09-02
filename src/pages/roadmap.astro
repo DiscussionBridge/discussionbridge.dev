@@ -7,8 +7,9 @@ const profiles = [
   ["03", "Hugo", "A late-Alpha static publishing adapter completed before the Beta feature lock."],
   ["04", "Statamic DB", "The shared Statamic addon proven independently against database-backed content."],
   ["05", "Statamic Flat", "The same addon proven independently against file-backed content."],
-  ["06", "WordPress", "A native WordPress integration that preserves familiar platform presentation."],
-  ["07", "The Bridge — Discourse as Publisher", "The flagship using the same downloadable DiscussionBridge plugin as every operator."],
+  ["06", "Statamic SSG", "The same Statamic addon proven through a generated deployment with live discussion presentation."],
+  ["07", "WordPress", "A native WordPress integration that preserves familiar platform presentation."],
+  ["08", "The Bridge — Discourse as Publisher", "The flagship using the same downloadable DiscussionBridge plugin as every operator."],
 ];
 ---
 
@@ -21,7 +22,7 @@ const profiles = [
 
   <section class="roadmap-section" aria-labelledby="alpha-roadmap">
     <p class="eyebrow">Alpha</p>
-    <h2 id="alpha-roadmap">Seven live publishing profiles</h2>
+    <h2 id="alpha-roadmap">Eight live publishing profiles</h2>
     <div class="profile-list">
       {profiles.map(([number, name, description]) => (
         <article><strong>{number}</strong><div><h3>{name}</h3><p>{description}</p></div></article>
@@ -30,12 +31,13 @@ const profiles = [
   </section>
 
   <section class="roadmap-grid" aria-label="Future DiscussionBridge capability families">
-    <article><p class="eyebrow">Advanced profiles</p><h2>More ways to use proven adapters</h2><p>Statamic Multi-Site, Statamic SSG, and WordPress Multisite extend existing integration families when their identity and isolation boundaries are proven.</p></article>
+    <article><p class="eyebrow">Advanced profiles</p><h2>More ways to use proven adapters</h2><p>Statamic Multi-Site and WordPress Multisite extend existing integration families when their identity and isolation boundaries are proven.</p></article>
     <article><p class="eyebrow">DiscussionBridge Network</p><h2>Forums connected by choice</h2><p>Optional Forum Connections let Discourse communities discover and present canonical discussions without creating competing comment histories.</p></article>
     <article><p class="eyebrow">Migration</p><h2>Bring existing discussion forward</h2><p>Separate migration tools can import legacy comments and establish ordinary durable Bridge Records without turning the core plugin into a bulk migration engine.</p></article>
     <article><p class="eyebrow">Identity</p><h2>Separate because trust matters</h2><p>Discourse network identity and platform-to-Discourse login belong in deliberately bounded optional capabilities, never silently inside content adapters.</p></article>
     <article><p class="eyebrow">Candidate adapters</p><h2>Driven by demonstrated need</h2><p>Drupal, Next.js, Nuxt, SvelteKit, and other candidates move forward when real users bring concrete publishing workflows worth supporting.</p></article>
     <article><p class="eyebrow">Deployment capabilities</p><h2>Run adapters where they fit</h2><p>Cloudflare Workers and similar runtimes may host suitable adapters or presentation services without becoming publishing-platform entries.</p></article>
+    <article><p class="eyebrow">Planned themed editions</p><h2>Build beautifully before launch</h2><p>Native Astro, Ghost, Hugo, and shared Statamic editions can support a polished build placeholder, private preview, and complete live site. A purpose-built Discourse theme for The Bridge is also under consideration; WordPress is outside this plan.</p></article>
   </section>
 
   <section class="invitation">

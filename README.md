@@ -11,10 +11,12 @@ The public product hierarchy is:
   platform product, Bridge-enhanced by choice; and
 - focused Network, Migration, Identity and Deployment capability families.
 
-The public roadmap is at `/roadmap/`. It records seven Alpha profiles with
-Hugo at the end of Alpha before the Beta feature lock, then invites concrete
-user workflows to shape later additions. It is product direction, not release
-or implementation authority.
+The public roadmap is at `/roadmap/`. It records eight live Alpha profiles,
+including Statamic SSG, then invites concrete user workflows to shape later
+additions. It also records the planned native themed-edition direction for
+Astro, Ghost, Hugo, one shared Statamic theme, and a possible Discourse theme
+for The Bridge; WordPress is outside that themed set. The roadmap is product
+direction, not release or implementation authority.
 
 ## Local Verification
 

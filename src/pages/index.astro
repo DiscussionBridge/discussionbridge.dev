@@ -1,130 +1,205 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 
-const actions = [
-  { href: "https://demo.discussionbridge.dev/", label: "Explore live demos" },
-  { href: "https://bridge.demo.discussionbridge.dev/", label: "Visit The Bridge" },
-  { href: "/roadmap/", label: "View the roadmap" },
+const profiles = [
+  { number: "01", name: "Astro", detail: "Astro + Starlight and plain Astro", href: "https://demo.discussionbridge.dev/astro/" },
+  { number: "02", name: "Ghost", detail: "Native publishing and discussion", href: "https://demo.discussionbridge.dev/ghost/" },
+  { number: "03", name: "Hugo", detail: "Static publishing with live discussion", href: "https://demo.discussionbridge.dev/hugo/" },
+  { number: "04", name: "Statamic DB", detail: "Database-backed content", href: "https://demo.discussionbridge.dev/statamic/" },
+  { number: "05", name: "Statamic Flat", detail: "File-backed content", href: "https://demo.discussionbridge.dev/statamic/" },
+  { number: "06", name: "Statamic SSG", detail: "Generated site delivery", href: "https://demo.discussionbridge.dev/statamic/" },
+  { number: "07", name: "WordPress", detail: "Native plugin integration", href: "https://demo.discussionbridge.dev/wordpress/" },
+  { number: "08", name: "The Bridge", detail: "Discourse as Publisher", href: "https://demo.discussionbridge.dev/discourse/" },
 ];
 
-const alphaProfiles = [
-  "Astro",
-  "Ghost",
-  "Hugo",
-  "Statamic DB",
-  "Statamic Flat",
-  "WordPress",
-  "The Bridge — Discourse as Publisher",
+const proofs = [
+  ["8", "live publishing profiles"],
+  ["3", "discussion presentations"],
+  ["1", "authoritative conversation"],
 ];
 ---
 
-<SiteLayout description="DiscussionBridge is a product family for publishing anywhere while keeping one durable Discourse discussion.">
+<SiteLayout description="DiscussionBridge connects publishing platforms to one durable Discourse discussion—live across eight real profiles.">
   <section class="hero">
-    <p class="eyebrow">Publish anywhere. Keep the discussion.</p>
-    <h1>DiscussionBridge</h1>
-    <p class="hero__lead">
-      A family of tools that keeps discussion independent of the publishing platform.
-      Connect content by choice, change platforms without abandoning community history,
-      and keep Discourse as the durable discussion home.
-    </p>
-    <div class="actions">
-      {actions.map((action, index) => (
-        <a class:list={["button", { secondary: index > 0 }]} href={action.href}>{action.label}</a>
+    <div class="hero__copy">
+      <p class="eyebrow">Discussion freedom for the open web</p>
+      <h1>Publish anywhere.<br /><span>Keep the discussion.</span></h1>
+      <p class="hero__lead">
+        DiscussionBridge connects content without trapping its conversation inside a CMS,
+        theme, or framework. Publish where the work belongs. Keep Discourse as the durable
+        home of the discussion.
+      </p>
+      <div class="actions">
+        <a class="button" href="https://demo.discussionbridge.dev/">Explore the live demos</a>
+        <a class="button secondary" href="https://bridge.demo.discussionbridge.dev/">Enter The Bridge</a>
+      </div>
+    </div>
+    <aside class="hero__proof" aria-label="DiscussionBridge live proof">
+      <p class="eyebrow">Working now</p>
+      <p class="proof-statement">One Discourse topic can serve different sites, platforms, and presentation needs at the same time.</p>
+      <div class="proof-grid">
+        {proofs.map(([value, label]) => <div><strong>{value}</strong><span>{label}</span></div>)}
+      </div>
+      <a href="https://demo.discussionbridge.dev/discourse/">See the publisher matrix <span aria-hidden="true">→</span></a>
+    </aside>
+  </section>
+
+  <section class="promise" aria-labelledby="promise-heading">
+    <p class="eyebrow">The product promise</p>
+    <h2 id="promise-heading">Your content can move.<br />Its discussion does not have to start over.</h2>
+    <div class="promise__body">
+      <p>Discussion should be platform-agnostic by design and connected by choice. A canonical conversation can appear wherever its content belongs without creating competing histories.</p>
+      <p>Change a CMS. Replace a theme. Generate a static site. Add The Bridge later. The discussion identity, replies, moderation, and community memory remain anchored in Discourse.</p>
+    </div>
+  </section>
+
+  <section class="flagship" aria-labelledby="flagship-heading">
+    <div>
+      <p class="eyebrow">The Discourse-powered flagship</p>
+      <h2 id="flagship-heading">The Bridge</h2>
+      <p>The reference experience where Content Connections, Bridge Records, authorship, reconciliation, publishing, and live discussion come together through the same DiscussionBridge plugin available to forum operators.</p>
+    </div>
+    <div class="flagship__actions">
+      <a class="button light" href="https://bridge.demo.discussionbridge.dev/">Open The Bridge</a>
+      <a href="https://demo.discussionbridge.dev/discourse/">Explore the many-to-many demonstrations</a>
+    </div>
+  </section>
+
+  <section class="profiles" aria-labelledby="profiles-heading">
+    <div class="section-intro">
+      <p class="eyebrow">Proven across the publishing estate</p>
+      <h2 id="profiles-heading">Eight profiles. Real content. One coherent approach.</h2>
+      <p>Each profile proves stable identity, bounded delivery, safe retry, native presentation, and an honest platform boundary—not a logo on a compatibility list.</p>
+    </div>
+    <div class="profile-grid">
+      {profiles.map((profile) => (
+        <a href={profile.href}>
+          <strong>{profile.number}</strong>
+          <span><b>{profile.name}</b><small>{profile.detail}</small></span>
+          <i aria-hidden="true">↗</i>
+        </a>
       ))}
     </div>
   </section>
 
-  <section class="statement" aria-labelledby="continuity-statement">
-    <p class="eyebrow">The product promise</p>
-    <h2 id="continuity-statement">Your platform may change. Your discussion continues.</h2>
-    <p>
-      One canonical discussion can appear wherever its content belongs. Disconnecting a CMS,
-      replacing a theme, or moving to another framework does not erase the conversation.
-    </p>
+  <section class="modes" aria-labelledby="modes-heading">
+    <div class="section-intro">
+      <p class="eyebrow">Presentation by choice</p>
+      <h2 id="modes-heading">Not every site needs the same discussion experience.</h2>
+    </div>
+    <div class="mode-grid">
+      <article><span>01</span><h3>Simple</h3><p>Lightweight native comment cards with bounded disclosure and no embedded Discourse application.</p></article>
+      <article><span>02</span><h3>Full</h3><p>Plugin-free Discourse comments for operators who want the familiar Core presentation.</p></article>
+      <article><span>03</span><h3>fullInteractive</h3><p>The complete Bridge experience with live forum interaction, durable mapping, and governed identity.</p></article>
+    </div>
+    <a class="inline-action" href="https://demo.discussionbridge.dev/discourse/">Compare all three across the live matrix <span aria-hidden="true">→</span></a>
   </section>
 
   <section class="family" aria-labelledby="family-heading">
     <div class="section-intro">
-      <p class="eyebrow">The product family</p>
-      <h2 id="family-heading">One purpose, several focused tools.</h2>
-      <p>DiscussionBridge is the family. These are the first products and capabilities taking shape.</p>
+      <p class="eyebrow">A family of focused tools</p>
+      <h2 id="family-heading">A flagship, an inaugural product, and room to grow deliberately.</h2>
     </div>
     <div class="family-grid">
       <article class="featured">
         <p class="eyebrow">Flagship</p>
         <h3>The Bridge</h3>
-        <p>The Discourse-powered flagship and reference experience where durable discussions, Content Connections, Bridge Records, presentation, reconciliation, and authorship come together.</p>
-        <a href="https://bridge.demo.discussionbridge.dev/">Open The Bridge</a>
+        <p>The Discourse-powered reference experience and the center of the connected publishing demonstrations.</p>
+        <a href="https://demo.discussionbridge.dev/discourse/">Explore The Bridge</a>
       </article>
       <article>
         <p class="eyebrow">Inaugural platform product</p>
         <h3>DiscussionBridge for Astro + Starlight</h3>
-        <p>Useful with standard Discourse on its own, then enhanced by the optional DiscussionBridge plugin without replacing the Astro product or its existing discussions.</p>
+        <p>A standalone Astro product that works with standard Discourse and becomes Bridge-enhanced by choice.</p>
         <a href="https://astrostarlight.demo.discussionbridge.dev/">See Astro + Starlight</a>
       </article>
       <article>
+        <p class="eyebrow">Planned themed editions</p>
+        <h3>Build beautifully. Launch on the same foundation.</h3>
+        <p>Native Astro, Ghost, Hugo, and shared Statamic editions can move from polished placeholder to private preview to finished live site. A purpose-built Discourse theme for The Bridge is also being considered.</p>
+        <a href="https://demo.discussionbridge.dev/">See the planned editions</a>
+      </article>
+      <article>
         <p class="eyebrow">Focused capabilities</p>
-        <h3>Content first, extensions by purpose.</h3>
-        <p>Network, Migration, Identity, and Deployment remain distinct capabilities so the core plugin does not become an unrelated all-in-one control system.</p>
-        <a href="/roadmap/">See what comes next</a>
+        <h3>Network, Migration, Identity, and Deployment.</h3>
+        <p>Important capabilities remain separate by purpose so the core product does not become an undifferentiated control plane.</p>
+        <a href="/roadmap/">Read the roadmap</a>
       </article>
     </div>
   </section>
 
-  <section class="alpha" aria-labelledby="alpha-heading">
-    <div>
-      <p class="eyebrow">Alpha path</p>
-      <h2 id="alpha-heading">Seven real publishing profiles.</h2>
-      <p>Alpha is built around meaningful source content, stable discussion identity, native presentation, safe retry, and honest live demonstrations.</p>
-    </div>
-    <ol>
-      {alphaProfiles.map((profile, index) => (
-        <li><strong>{String(index + 1).padStart(2, "0")}</strong><span>{profile}</span></li>
-      ))}
-    </ol>
-  </section>
-
   <section class="invitation" aria-labelledby="invitation-heading">
-    <p class="eyebrow">Help shape what follows</p>
-    <h2 id="invitation-heading">What should DiscussionBridge connect next?</h2>
-    <p>Future adapters and capabilities should answer real publishing needs. Bring us a platform, migration, identity, or network workflow worth solving.</p>
+    <div>
+      <p class="eyebrow">Help shape what follows</p>
+      <h2 id="invitation-heading">What should DiscussionBridge connect next?</h2>
+      <p>We would rather solve demonstrated publishing problems than build speculative integrations. Bring us the platform, migration, identity, or community workflow you actually need.</p>
+    </div>
     <div class="actions">
-      <a class="button" href="https://forum.discussionbridge.dev/">Join the discussion</a>
-      <a class="button secondary" href="/roadmap/">Read the public roadmap</a>
+      <a class="button" href="https://forum.discussionbridge.dev/t/discussionbridge-roadmap-what-should-we-build-next/45">Join the roadmap discussion</a>
+      <a class="button secondary" href="/roadmap/">View the public roadmap</a>
     </div>
   </section>
 </SiteLayout>
 
 <style>
-  .hero { max-width: 930px; padding-block: 28px 58px; }
-  h1 { margin: 0; font-size: clamp(3.2rem, 11vw, 7rem); }
-  .hero__lead { max-width: 860px; margin: 20px 0 28px; color: var(--muted); font-size: clamp(1.15rem, 2.4vw, 1.55rem); }
+  .hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(310px, 0.65fr); gap: clamp(34px, 7vw, 88px); align-items: end; padding-block: clamp(36px, 8vw, 92px); }
+  .hero h1 { max-width: 820px; margin: 0; font-size: clamp(3.5rem, 9vw, 7.4rem); letter-spacing: -0.055em; line-height: 0.91; }
+  .hero h1 span { color: var(--accent); }
+  .hero__lead { max-width: 790px; margin: 28px 0; color: var(--muted); font-size: clamp(1.15rem, 2.2vw, 1.48rem); }
   .actions { display: flex; flex-wrap: wrap; gap: 10px; }
-  .button { display: inline-flex; min-height: 44px; align-items: center; padding: 9px 14px; border: 1px solid var(--accent); border-radius: 6px; background: var(--accent); color: #fff; font-weight: 700; text-decoration: none; }
+  .button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; padding: 10px 16px; border: 1px solid var(--accent); border-radius: 7px; background: var(--accent); color: #fff; font-weight: 750; text-decoration: none; }
   .button:hover { color: #fff; background: var(--accent-strong); }
   .button.secondary { color: var(--accent-strong); background: transparent; }
   .button.secondary:hover { color: var(--accent-strong); background: var(--accent-soft); }
-  .statement { padding-block: 42px; border-block: 1px solid var(--line); }
-  .statement h2, .section-intro h2, .alpha h2, .invitation h2 { margin: 0; font-size: clamp(1.9rem, 4vw, 3.2rem); }
-  .statement > p:last-child { max-width: 900px; margin: 14px 0 0; color: var(--muted); font-size: 1.1rem; }
-  .family { padding-block: 56px; }
-  .section-intro { max-width: 800px; margin-bottom: 24px; }
-  .section-intro > p:last-child { color: var(--muted); }
-  .family-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-  .family-grid article { display: flex; min-height: 315px; flex-direction: column; padding: 28px; border: 1px solid var(--line); border-radius: 18px; background: var(--panel); }
-  .family-grid article.featured { background: #12343a; color: #fff; }
+  .hero__proof { padding: 28px; border: 1px solid var(--line); border-radius: 20px; background: var(--panel); box-shadow: 0 24px 60px rgb(23 32 42 / 8%); }
+  .proof-statement { margin: 0 0 22px; color: var(--ink); font-size: 1.08rem; font-weight: 650; }
+  .proof-grid { display: grid; gap: 0; border-block: 1px solid var(--line); }
+  .proof-grid div { display: grid; grid-template-columns: 52px 1fr; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .proof-grid div:last-child { border-bottom: 0; }
+  .proof-grid strong { color: var(--accent); font-size: 1.8rem; line-height: 1; }
+  .proof-grid span { color: var(--muted); font-size: 0.9rem; font-weight: 700; }
+  .hero__proof > a { display: inline-block; margin-top: 20px; font-weight: 800; }
+  .promise { padding-block: clamp(48px, 8vw, 88px); border-block: 1px solid var(--line); }
+  .promise h2, .section-intro h2, .invitation h2 { margin: 0; font-size: clamp(2.2rem, 5vw, 4.25rem); letter-spacing: -0.035em; }
+  .promise__body { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px; max-width: 920px; margin-top: 30px; }
+  .promise__body p { margin: 0; color: var(--muted); font-size: 1.08rem; }
+  .flagship { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 46px; align-items: end; margin-block: 56px; padding: clamp(30px, 6vw, 58px); border-radius: 26px; color: #fff; background: linear-gradient(135deg, #102f35, #164a51); box-shadow: 0 28px 70px rgb(16 47 53 / 18%); }
+  .flagship h2 { margin: 0; font-size: clamp(3rem, 7vw, 6rem); letter-spacing: -0.05em; }
+  .flagship p:not(.eyebrow) { max-width: 760px; margin-bottom: 0; color: #d1e0e1; font-size: 1.08rem; }
+  .flagship .eyebrow { color: #9ee4dc; }
+  .flagship__actions { display: flex; min-width: 250px; align-items: flex-start; flex-direction: column; gap: 14px; }
+  .flagship__actions a:not(.button) { color: #c2ece7; font-weight: 750; }
+  .button.light { border-color: #fff; color: #102f35; background: #fff; }
+  .profiles, .modes, .family { padding-block: 48px; }
+  .section-intro { max-width: 900px; margin-bottom: 30px; }
+  .section-intro > p:last-child { max-width: 800px; color: var(--muted); font-size: 1.06rem; }
+  .profile-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+  .profile-grid a { display: grid; grid-template-columns: 42px 1fr auto; gap: 14px; align-items: center; min-height: 92px; padding: 17px 20px; border-bottom: 1px solid var(--line); color: var(--text); text-decoration: none; }
+  .profile-grid a:nth-child(odd) { border-right: 1px solid var(--line); }
+  .profile-grid a:hover { background: var(--accent-soft); }
+  .profile-grid > a > strong { color: var(--accent-strong); font-size: 0.76rem; letter-spacing: 0.08em; }
+  .profile-grid span { display: flex; flex-direction: column; }
+  .profile-grid b { font-size: 1.08rem; }
+  .profile-grid small { color: var(--muted); }
+  .profile-grid i { color: var(--accent); font-style: normal; }
+  .modes { margin-block: 30px; padding: clamp(28px, 5vw, 48px); border-radius: 24px; background: var(--accent-soft); }
+  .mode-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .mode-grid article { padding: 24px; border: 1px solid #cbe4e7; border-radius: 16px; background: rgb(255 255 255 / 72%); }
+  .mode-grid span { color: var(--accent-strong); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; }
+  .mode-grid h3 { margin: 8px 0; font-size: 1.45rem; }
+  .mode-grid p { margin: 0; color: var(--muted); }
+  .inline-action { display: inline-block; margin-top: 24px; font-weight: 800; }
+  .family-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .family-grid article { display: flex; min-height: 280px; flex-direction: column; padding: 30px; border: 1px solid var(--line); border-radius: 18px; background: var(--panel); }
+  .family-grid article.featured { color: #fff; background: #12343a; }
   .family-grid article.featured .eyebrow, .family-grid article.featured a { color: #a6e0da; }
   .family-grid article.featured p:not(.eyebrow) { color: #d1e0e1; }
-  .family-grid h3 { margin: 0; font-size: 1.55rem; }
+  .family-grid h3 { margin: 0; font-size: clamp(1.45rem, 3vw, 2rem); }
   .family-grid p:not(.eyebrow) { color: var(--muted); }
   .family-grid a { margin-top: auto; font-weight: 750; }
-  .alpha { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr); gap: 48px; padding: 46px; border-radius: 22px; background: var(--accent-soft); }
-  .alpha > div > p:last-child { color: var(--muted); }
-  .alpha ol { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
-  .alpha li { display: grid; grid-template-columns: 38px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid #c9e2e6; font-weight: 700; }
-  .alpha li:last-child { border-bottom: 0; }
-  .alpha li strong { color: var(--accent-strong); font-size: 0.78rem; letter-spacing: 0.08em; }
-  .invitation { margin-top: 56px; padding: 40px 0 10px; border-top: 1px solid var(--line); }
-  .invitation > p:not(.eyebrow) { max-width: 780px; color: var(--muted); font-size: 1.08rem; }
-  @media (max-width: 800px) { .family-grid, .alpha { grid-template-columns: 1fr; } .alpha { padding: 28px; } }
+  .invitation { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: end; margin-top: 56px; padding: clamp(30px, 6vw, 52px); border-top: 1px solid var(--line); }
+  .invitation p:not(.eyebrow) { max-width: 760px; color: var(--muted); }
+  .invitation .actions { min-width: 230px; align-items: stretch; flex-direction: column; }
+  @media (max-width: 820px) { .hero, .flagship, .invitation { grid-template-columns: 1fr; align-items: start; } .proof-grid { grid-template-columns: repeat(3, 1fr); } .proof-grid div { grid-template-columns: 1fr; align-content: start; } .proof-grid div:not(:last-child) { border-right: 1px solid var(--line); border-bottom: 0; } .flagship__actions, .invitation .actions { min-width: 0; } }
+  @media (max-width: 680px) { .promise__body, .profile-grid, .mode-grid, .family-grid { grid-template-columns: 1fr; } .profile-grid a:nth-child(odd) { border-right: 0; } .proof-grid { grid-template-columns: 1fr; } .proof-grid div { grid-template-columns: 52px 1fr; } .proof-grid div:not(:last-child) { border-right: 0; border-bottom: 1px solid var(--line); } .invitation { padding-inline: 0; } }
 </style>
