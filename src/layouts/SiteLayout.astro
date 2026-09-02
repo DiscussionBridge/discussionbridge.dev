@@ -8,6 +8,15 @@ const siteName = "DiscussionBridge";
 const title = Astro.props.title ? `${Astro.props.title} | ${siteName}` : siteName;
 const description = Astro.props.description
   ?? "DiscussionBridge is a family of tools for publishing anywhere while keeping one durable Discourse discussion.";
+
+const communityLinks = [
+  { label: "Forum", href: "https://forum.discussionbridge.dev/" },
+  { label: "Bluesky", href: "https://bsky.app/profile/discussionbridge.bsky.social" },
+  { label: "Discord", href: "https://discord.gg/Y7SRQAxKq" },
+  { label: "Mastodon", href: "https://mastodon.social/@DiscussionBridge" },
+  { label: "Reddit", href: "https://www.reddit.com/r/DiscussionBridge/" },
+  { label: "YouTube", href: "https://www.youtube.com/@DiscussionBridge" },
+];
 ---
 
 <!doctype html>
@@ -107,11 +116,33 @@ const description = Astro.props.description
       }
 
       .site-footer__inner {
-        padding-block: 20px;
+        display: grid;
+        gap: 14px;
+        padding-block: 24px;
       }
 
       .site-footer p {
         margin: 0;
+      }
+
+      .community-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 14px;
+      }
+
+      .community-links a {
+        color: var(--accent-strong);
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.24em;
+      }
+
+      .community-links .is-planned {
+        color: var(--muted);
+        cursor: default;
+        font-size: 0.9rem;
       }
 
       h1,
@@ -201,6 +232,10 @@ const description = Astro.props.description
     <footer class="site-footer">
       <div class="site-footer__inner">
         <p>Publish clearly. Discuss openly. Preserve what the community learns.</p>
+        <nav class="community-links" aria-label="DiscussionBridge community and social links">
+          {communityLinks.map((item) => <a href={item.href}>{item.label}</a>)}
+          <span class="is-planned" title="DiscussionBridge on X is not live yet">X · planned</span>
+        </nav>
       </div>
     </footer>
   </body>
