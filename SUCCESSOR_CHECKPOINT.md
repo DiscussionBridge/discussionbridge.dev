@@ -1,6 +1,6 @@
 # DiscussionBridge Apex Successor Checkpoint
 
-Updated: 2026-08-30 (America/Los_Angeles)
+Updated: 2026-09-03 (America/Los_Angeles)
 
 Repository: `C:\CodeProjects\Sites\DiscussionBridge\discussionbridge.dev\site`
 
@@ -156,3 +156,18 @@ browser verification found no horizontal overflow, the intended live/pending
 status labels, the complete support paths, and the new Support navigation item.
 Source commit `e9e4562` is pushed to `origin/main` and deployed as Cloudflare
 Worker version `93b02358-a3bd-4461-b6b6-efa967b440d5`.
+
+## 2026-09-03 download and release discoverability
+
+`Download` is now the first item in the product site's primary navigation.
+The new `/download/` page is the canonical public routing surface for current
+package availability, GitHub source and release history, operator guidance and
+support. It explicitly says the reviewed Alpha.18 package is being prepared for
+public download and does not misrepresent the older public prereleases as the
+current package.
+
+The Support page now leads its path cards with `Versions & releases`, routing
+operators into the same download/release boundary before installation. The
+eight-page build and Wrangler dry run passed. Source commit `55ec82b` is pushed
+to `origin/main` and deployed as Cloudflare Worker version
+`cdb9d494-09b3-4ff5-88f6-4c35d56dac57`.
