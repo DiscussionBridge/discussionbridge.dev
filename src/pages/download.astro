@@ -1,0 +1,90 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+const releasesTopic = "https://bridge.demo.discussionbridge.dev/t/discussionbridge-versions-and-live-status/62";
+const bridgeRepository = "https://github.com/DiscussionBridge/discourse-discussion-bridge";
+const bridgeReleases = `${bridgeRepository}/releases`;
+const organization = "https://github.com/DiscussionBridge";
+---
+
+<SiteLayout title="Download" description="Find the current DiscussionBridge release status, source repositories, packages, and installation guidance.">
+  <section class="download-hero">
+    <p class="eyebrow">DiscussionBridge downloads</p>
+    <h1>Install an exact release.<br /><span>Know what you are running.</span></h1>
+    <p class="lede">
+      DiscussionBridge is distributed through versioned GitHub releases. Start here for
+      the current release state, then install only the exact package and version named by
+      the release record.
+    </p>
+    <div class="actions">
+      <a class="button" href={releasesTopic}>Current versions and release status</a>
+      <a class="button secondary" href={organization}>DiscussionBridge on GitHub</a>
+    </div>
+  </section>
+
+  <section class="release-notice" aria-labelledby="alpha-status">
+    <div>
+      <p class="eyebrow">Current Alpha status</p>
+      <h2 id="alpha-status">The reviewed Alpha package is being prepared for public download.</h2>
+    </div>
+    <p>
+      The current product candidate uses The Bridge <strong>0.2.0.alpha.18</strong> and
+      its matching platform packages. Earlier GitHub prereleases remain useful history,
+      but they are not the current product download. This page will link the accepted
+      release assets as soon as they are published.
+    </p>
+  </section>
+
+  <section class="download-grid" aria-label="Download and source destinations">
+    <article>
+      <p class="eyebrow">The flagship plugin</p>
+      <h2>The Bridge for Discourse</h2>
+      <p>Inspect the public source, installation boundary, and immutable release history for the unified Discourse plugin.</p>
+      <div class="card-actions">
+        <a href={bridgeRepository}>View source <span aria-hidden="true">→</span></a>
+        <a href={bridgeReleases}>View release history <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+    <article>
+      <p class="eyebrow">Platform products</p>
+      <h2>Adapters and addons</h2>
+      <p>Astro, Ghost, Hugo, Statamic, and WordPress packages will be linked here as their public repositories and accepted release assets are published.</p>
+      <a href={organization}>Browse the GitHub organization <span aria-hidden="true">→</span></a>
+    </article>
+    <article>
+      <p class="eyebrow">Before installation</p>
+      <h2>Read the operator guide</h2>
+      <p>Prepare recovery, verify the package identity, configure connections, and understand each platform’s installation boundary.</p>
+      <a href="https://docs.discussionbridge.dev/alpha-operator-guide/">Open the Alpha Operator Guide <span aria-hidden="true">→</span></a>
+    </article>
+    <article>
+      <p class="eyebrow">Need help?</p>
+      <h2>Bring the exact version</h2>
+      <p>Include The Bridge compatibility line, component build, platform version, and the workflow you were exercising.</p>
+      <a href="/support/">Visit Alpha Support <span aria-hidden="true">→</span></a>
+    </article>
+  </section>
+</SiteLayout>
+
+<style>
+  .download-hero { max-width: 920px; padding-block: clamp(34px, 8vw, 86px); }
+  .download-hero h1 { margin: 0; font-size: clamp(3.2rem, 8vw, 6.8rem); letter-spacing: -.052em; line-height: .93; }
+  .download-hero h1 span { color: var(--accent); }
+  .download-hero .lede { margin-block: 26px; }
+  .actions, .card-actions { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+  .button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; padding: 10px 16px; border: 1px solid var(--accent); border-radius: 7px; background: var(--accent); color: #fff; font-weight: 750; text-decoration: none; }
+  .button:hover { color: #fff; background: var(--accent-strong); }
+  .button.secondary { color: var(--accent-strong); background: transparent; }
+  .button.secondary:hover { color: var(--accent-strong); background: var(--accent-soft); }
+  .release-notice { display: grid; grid-template-columns: minmax(260px, .9fr) minmax(0, 1.1fr); gap: 30px 60px; align-items: start; padding: clamp(28px, 5vw, 46px); border-radius: 22px; color: #fff; background: #18383e; }
+  .release-notice .eyebrow { color: #9ee4dc; }
+  .release-notice h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 3rem); }
+  .release-notice > p { margin: 0; color: #d6e4e5; font-size: 1.05rem; }
+  .download-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding-block: 54px 18px; }
+  .download-grid article { display: flex; min-height: 270px; flex-direction: column; padding: 28px; border: 1px solid var(--line); border-radius: 18px; background: var(--panel); }
+  .download-grid h2 { margin: 0; font-size: clamp(1.5rem, 3vw, 2.2rem); }
+  .download-grid p:not(.eyebrow) { color: var(--muted); }
+  .download-grid article > a, .card-actions { margin-top: auto; padding-top: 22px; font-weight: 750; }
+  .card-actions a { font-weight: 750; }
+  @media (max-width: 720px) { .release-notice, .download-grid { grid-template-columns: 1fr; } .download-grid article { min-height: 0; } }
+</style>
