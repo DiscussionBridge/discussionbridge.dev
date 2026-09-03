@@ -171,3 +171,19 @@ operators into the same download/release boundary before installation. The
 eight-page build and Wrangler dry run passed. Source commit `55ec82b` is pushed
 to `origin/main` and deployed as Cloudflare Worker version
 `cdb9d494-09b3-4ff5-88f6-4c35d56dac57`.
+
+## 2026-09-03 Built in public census card
+
+The homepage now presents a dated `Built in public` card between The Bridge
+flagship and the live profile matrix. It reports the corrected current-product
+census: 15,073 lines of first-party source, 6,877 lines of tests, 2,455 lines
+of product documentation, and six current implementation packages.
+
+The card links to Versions and Live Status for the full measurement and to the
+core/adapter architecture. It says `Last measured September 3, 2026` and names
+the excluded generated, dependency, lockfile, vendored, archive, and binary
+material so the figures are not presented as an unexplained vanity metric.
+
+The eight-page production build and Wrangler dry run passed. Source commit
+`1590c43` is pushed to `origin/main` and deployed as Cloudflare Worker version
+`a137c794-3444-4b82-8dbc-72af0d099433`.
