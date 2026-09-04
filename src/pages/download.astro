@@ -5,6 +5,14 @@ const releasesTopic = "https://bridge.demo.discussionbridge.dev/t/discussionbrid
 const bridgeRepository = "https://github.com/DiscussionBridge/discourse-discussion-bridge";
 const bridgeReleases = `${bridgeRepository}/releases`;
 const organization = "https://github.com/DiscussionBridge";
+const products = [
+  ["The Bridge — DiscussionBridge for Discourse", bridgeRepository],
+  ["DiscussionBridge for Astro", "https://github.com/DiscussionBridge/astro-discussion-bridge"],
+  ["DiscussionBridge for Ghost", "https://github.com/DiscussionBridge/ghost-discussion-bridge"],
+  ["DiscussionBridge for Hugo", "https://github.com/DiscussionBridge/hugo-discussion-bridge"],
+  ["DiscussionBridge for Statamic", "https://github.com/DiscussionBridge/statamic-discussion-bridge"],
+  ["DiscussionBridge for WordPress", "https://github.com/DiscussionBridge/wordpress-discussion-bridge"],
+];
 ---
 
 <SiteLayout title="Download" description="Find the current DiscussionBridge release status, source repositories, packages, and installation guidance.">
@@ -12,9 +20,8 @@ const organization = "https://github.com/DiscussionBridge";
     <p class="eyebrow">DiscussionBridge downloads</p>
     <h1>Install an exact release.<br /><span>Know what you are running.</span></h1>
     <p class="lede">
-      DiscussionBridge is distributed through versioned GitHub releases. Start here for
-      the current release state, then install only the exact package and version named by
-      the release record.
+      DiscussionBridge source is distributed through public GitHub repositories. Start
+      here for the current source baseline, component versions, and release state.
     </p>
     <div class="actions">
       <a class="button" href={releasesTopic}>Current versions and release status</a>
@@ -25,13 +32,13 @@ const organization = "https://github.com/DiscussionBridge";
   <section class="release-notice" aria-labelledby="alpha-status">
     <div>
       <p class="eyebrow">Current Alpha status</p>
-      <h2 id="alpha-status">The reviewed Alpha package is being prepared for public download.</h2>
+      <h2 id="alpha-status">DiscussionBridge 0.2.0-alpha.18 source is public.</h2>
     </div>
     <p>
-      The current product candidate uses The Bridge <strong>0.2.0.alpha.18</strong> and
-      its matching platform packages. Earlier GitHub prereleases remain useful history,
-      but they are not the current product download. This page will link the accepted
-      release assets as soon as they are published.
+      All six product repositories are publicly cloneable, and each repository's
+      <code>main</code> branch and <code>v0.2.0-alpha.18</code> tag identify the current
+      coordinated source baseline. Packaged release assets and final Alpha acceptance
+      remain separate release steps.
     </p>
   </section>
 
@@ -48,8 +55,10 @@ const organization = "https://github.com/DiscussionBridge";
     <article>
       <p class="eyebrow">Platform products</p>
       <h2>Adapters and addons</h2>
-      <p>Astro, Ghost, Hugo, Statamic, and WordPress packages will be linked here as their public repositories and accepted release assets are published.</p>
-      <a href={organization}>Browse the GitHub organization <span aria-hidden="true">→</span></a>
+      <p>Astro, Ghost, Hugo, Statamic, and WordPress now have public product repositories alongside The Bridge.</p>
+      <ul class="product-links">
+        {products.slice(1).map(([name, url]) => <li><a href={url}>{name}</a></li>)}
+      </ul>
     </article>
     <article>
       <p class="eyebrow">Before installation</p>
@@ -86,5 +95,7 @@ const organization = "https://github.com/DiscussionBridge";
   .download-grid p:not(.eyebrow) { color: var(--muted); }
   .download-grid article > a, .card-actions { margin-top: auto; padding-top: 22px; font-weight: 750; }
   .card-actions a { font-weight: 750; }
+  .product-links { margin: 8px 0 0; padding-left: 1.2rem; }
+  .product-links li + li { margin-top: 7px; }
   @media (max-width: 720px) { .release-notice, .download-grid { grid-template-columns: 1fr; } .download-grid article { min-height: 0; } }
 </style>
