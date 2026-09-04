@@ -187,3 +187,15 @@ material so the figures are not presented as an unexplained vanity metric.
 The eight-page production build and Wrangler dry run passed. Source commit
 `1590c43` is pushed to `origin/main` and deployed as Cloudflare Worker version
 `a137c794-3444-4b82-8dbc-72af0d099433`.
+
+## 2026-09-04 public source download routing
+
+The `/download/` page now states that **DiscussionBridge 0.2.0-alpha.18**
+source is public. It links the public repositories for The Bridge, Astro,
+Ghost, Hugo, Statamic, and WordPress and identifies `main` plus the shared
+`v0.2.0-alpha.18` tag as the coordinated source baseline. It does not claim
+that packaged release assets or final Alpha acceptance are complete.
+
+The eight-page production build and scoped diff checking passed. Source commit
+`09b53e5` is pushed to `origin/main` and deployed as Cloudflare Worker version
+`5cb6668c-1ba8-4fe5-ba64-2d0b4af16776`.
