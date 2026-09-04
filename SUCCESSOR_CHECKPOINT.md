@@ -199,3 +199,8 @@ that packaged release assets or final Alpha acceptance are complete.
 The eight-page production build and scoped diff checking passed. Source commit
 `09b53e5` is pushed to `origin/main` and deployed as Cloudflare Worker version
 `5cb6668c-1ba8-4fe5-ba64-2d0b4af16776`.
+
+The download wording was then refined to distinguish the current public
+`main` branches from the shared immutable publication tag. Source commit
+`f88feca` is pushed to `origin/main` and deployed as Cloudflare Worker version
+`8cf503d3-2d01-4c59-9f3d-87268907c0a6`.
