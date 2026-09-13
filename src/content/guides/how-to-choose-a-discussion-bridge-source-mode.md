@@ -10,7 +10,7 @@ discussionImportedFrom: "https://forum.discussionbridge.dev/t/how-to-choose-a-di
 discussionImportPolicy: "unpruned"
 discussionSourceHash: "4cddbce0ff795461ab0961159afbb96efa03bd1a994e63acd49fdea882e5537e"
 discussionImportedAt: "2026-07-23T15:43:19.766Z"
-discussionCommentsDisplay: "fullInteractive"
+discussionCommentsDisplay: "interactive"
 ---
 
 DiscussionBridge keeps published content connected to community discussion. Before connecting a page, decide which system owns the source.

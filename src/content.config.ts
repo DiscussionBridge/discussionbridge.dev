@@ -5,7 +5,7 @@ const discussionFields = {
   discourseTopicId: z.union([z.string(), z.number()]).optional(),
   discourseTopicUrl: z.string().url().optional(),
   discussionEmbedUrl: z.string().url().optional(),
-  discussionCommentsDisplay: z.enum(["simple", "full", "fullInteractive"]).optional(),
+  discussionCommentsDisplay: z.enum(["simple", "full", "interactive", "fullInteractive"]).optional(),
   discussionConnectionJobs: z.union([z.string(), z.record(z.string(), z.unknown())]).optional(),
   discussionImportedFrom: z.string().url().optional(),
   discussionImportedAt: z.coerce.date().optional(),

@@ -10,13 +10,14 @@ interface Props {
     pubDate?: Date;
     updatedDate?: Date;
     tags?: string[];
-    discussionCommentsDisplay?: "simple" | "full" | "fullInteractive";
+    discussionCommentsDisplay?: "simple" | "full" | "interactive" | "fullInteractive";
   };
   lane: "Blog" | "Community guide";
 }
 
 const { frontmatter, lane } = Astro.props;
-const display = frontmatter.discussionCommentsDisplay ?? "full";
+const requestedDisplay = frontmatter.discussionCommentsDisplay ?? "full";
+const display = requestedDisplay === "fullInteractive" ? "interactive" : requestedDisplay;
 const description = frontmatter.description ?? `${lane}: ${frontmatter.title}`;
 ---
 
