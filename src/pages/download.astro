@@ -4,7 +4,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 const releasesTopic = "https://bridge.demo.discussionbridge.dev/t/discussionbridge-versions-and-live-status/62";
 const bridgeRepository = "https://github.com/DiscussionBridge/discourse-discussion-bridge";
 const organization = "https://github.com/DiscussionBridge";
-const releaseTag = "v0.2.0-alpha.19";
+const releaseTag = "v0.2.0-alpha.20";
 const bridgeRelease = `${bridgeRepository}/releases/tag/${releaseTag}`;
 const products = [
   ["The Bridge — DiscussionBridge for Discourse", bridgeRepository],
@@ -13,6 +13,7 @@ const products = [
   ["DiscussionBridge for Hugo", "https://github.com/DiscussionBridge/hugo-discussion-bridge"],
   ["DiscussionBridge for Statamic", "https://github.com/DiscussionBridge/statamic-discussion-bridge"],
   ["DiscussionBridge for WordPress", "https://github.com/DiscussionBridge/wordpress-discussion-bridge"],
+  ["DiscussionBridge Adapter Protocol", "https://github.com/DiscussionBridge/discussionbridge-adapter-contract"],
 ];
 ---
 
@@ -33,10 +34,10 @@ const products = [
   <section class="release-notice" aria-labelledby="alpha-status">
     <div>
       <p class="eyebrow">Current Alpha status</p>
-      <h2 id="alpha-status">DiscussionBridge 0.2.0-alpha.19 is ready for sandbox installation.</h2>
+      <h2 id="alpha-status">DiscussionBridge 0.2.0-alpha.20 is ready for sandbox installation.</h2>
     </div>
     <p>
-      All six product repositories are publicly cloneable. The shared
+      All seven release-member repositories are publicly cloneable. The shared
       <code>{releaseTag}</code> tag and packaged GitHub prereleases identify the exact
       coordinated candidate. Human sandbox installation, unchanged promotion through
       development/pre-production, and final Alpha acceptance remain separate gates.
@@ -50,13 +51,13 @@ const products = [
       <p>Inspect the public source, installation boundary, and immutable release history for the unified Discourse plugin.</p>
       <div class="card-actions">
         <a href={bridgeRepository}>View source <span aria-hidden="true">→</span></a>
-        <a href={bridgeRelease}>Download Alpha.19 <span aria-hidden="true">→</span></a>
+        <a href={bridgeRelease}>Download Alpha.20 <span aria-hidden="true">→</span></a>
       </div>
     </article>
     <article>
       <p class="eyebrow">Platform products</p>
       <h2>Adapters and addons</h2>
-      <p>Astro, Ghost, Hugo, Statamic, and WordPress now have public product repositories alongside The Bridge.</p>
+      <p>Astro, Ghost, Hugo, Statamic, WordPress, and the shared Adapter Protocol have public repositories alongside The Bridge.</p>
       <ul class="product-links">
         {products.slice(1).map(([name, url]) => (
           <li>

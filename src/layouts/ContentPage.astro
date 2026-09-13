@@ -1,6 +1,5 @@
 ---
 import Discussion from "astro-discussion-bridge/Discussion.astro";
-import DiscussionSource from "astro-discussion-bridge/DiscussionSource.astro";
 import SiteLayout from "./SiteLayout.astro";
 
 interface Props {
@@ -39,8 +38,6 @@ const description = frontmatter.description ?? `${lane}: ${frontmatter.title}`;
         </p>
       )}
     </header>
-
-    <DiscussionSource frontmatter={frontmatter} />
 
     <div class="article__body">
       <slot />
