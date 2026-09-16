@@ -2,18 +2,17 @@
 import SiteLayout from "../layouts/SiteLayout.astro";
 
 const releasesTopic = "https://bridge.demo.discussionbridge.dev/t/discussionbridge-versions-and-live-status/62";
+const versionsGuide = "https://docs.discussionbridge.dev/versions-and-live-status/";
 const bridgeRepository = "https://github.com/DiscussionBridge/discourse-discussion-bridge";
 const organization = "https://github.com/DiscussionBridge";
-const releaseTag = "v0.2.0-alpha.20";
-const bridgeRelease = `${bridgeRepository}/releases/tag/${releaseTag}`;
+const bridgeRelease = `${bridgeRepository}/releases/tag/v0.2.0-alpha.32`;
 const products = [
-  ["The Bridge — DiscussionBridge for Discourse", bridgeRepository],
-  ["DiscussionBridge for Astro", "https://github.com/DiscussionBridge/astro-discussion-bridge"],
-  ["DiscussionBridge for Ghost", "https://github.com/DiscussionBridge/ghost-discussion-bridge"],
-  ["DiscussionBridge for Hugo", "https://github.com/DiscussionBridge/hugo-discussion-bridge"],
-  ["DiscussionBridge for Statamic", "https://github.com/DiscussionBridge/statamic-discussion-bridge"],
-  ["DiscussionBridge for WordPress", "https://github.com/DiscussionBridge/wordpress-discussion-bridge"],
-  ["DiscussionBridge Adapter Protocol", "https://github.com/DiscussionBridge/discussionbridge-adapter-contract"],
+  { name: "DiscussionBridge for Astro", slug: "astro-discussion-bridge", tag: "v0.2.0-alpha.21" },
+  { name: "DiscussionBridge for Ghost", slug: "ghost-discussion-bridge", tag: "v0.2.0-alpha.24" },
+  { name: "DiscussionBridge for Hugo", slug: "hugo-discussion-bridge", tag: "v0.2.0-alpha.20" },
+  { name: "DiscussionBridge for Statamic", slug: "statamic-discussion-bridge", tag: "v0.2.0-alpha.29" },
+  { name: "DiscussionBridge for WordPress", slug: "wordpress-discussion-bridge", tag: "v0.2.0-alpha.30" },
+  { name: "DiscussionBridge Adapter Protocol", slug: "discussionbridge-adapter-contract", tag: "v0.2.0-alpha.20" },
 ];
 ---
 
@@ -26,7 +25,7 @@ const products = [
       here for the current source baseline, component versions, and release state.
     </p>
     <div class="actions">
-      <a class="button" href={releasesTopic}>Current versions and release status</a>
+      <a class="button" href={versionsGuide}>Current versions and release status</a>
       <a class="button secondary" href={organization}>DiscussionBridge on GitHub</a>
     </div>
   </section>
@@ -34,13 +33,14 @@ const products = [
   <section class="release-notice" aria-labelledby="alpha-status">
     <div>
       <p class="eyebrow">Current Alpha status</p>
-      <h2 id="alpha-status">DiscussionBridge 0.2.0-alpha.20 is ready for sandbox installation.</h2>
+      <h2 id="alpha-status">The Alpha components now advance independently.</h2>
     </div>
     <p>
-      All seven release-member repositories are publicly cloneable. The shared
-      <code>{releaseTag}</code> tag and packaged GitHub prereleases identify the exact
-      coordinated candidate. Human sandbox installation, unchanged promotion through
-      development/pre-production, and final Alpha acceptance remain separate gates.
+      Updated September 16, 2026. The Bridge is at <code>v0.2.0-alpha.32</code>;
+      each adapter and addon has its own exact release below. Human sandbox
+      installation is under way. Live demos, development/preproduction, and final
+      Alpha acceptance are separate gates. Check the dated versions page before
+      installing; a moving <code>main</code> branch is not a release identity.
     </p>
   </section>
 
@@ -51,19 +51,19 @@ const products = [
       <p>Inspect the public source, installation boundary, and immutable release history for the unified Discourse plugin.</p>
       <div class="card-actions">
         <a href={bridgeRepository}>View source <span aria-hidden="true">→</span></a>
-        <a href={bridgeRelease}>Download Alpha.20 <span aria-hidden="true">→</span></a>
+        <a href={bridgeRelease}>Download Alpha.32 <span aria-hidden="true">→</span></a>
       </div>
     </article>
     <article>
       <p class="eyebrow">Platform products</p>
       <h2>Adapters and addons</h2>
-      <p>Astro, Ghost, Hugo, Statamic, WordPress, and the shared Adapter Protocol have public repositories alongside The Bridge.</p>
+      <p>Choose the exact component release. The Adapter Protocol is shared contract material, not a platform adapter.</p>
       <ul class="product-links">
-        {products.slice(1).map(([name, url]) => (
+        {products.map(({ name, slug, tag }) => (
           <li>
-            <a href={`${url}/releases/tag/${releaseTag}`}>{name} release</a>
+            <a href={`https://github.com/DiscussionBridge/${slug}/releases/tag/${tag}`}>{name} {tag}</a>
             <span aria-hidden="true"> · </span>
-            <a href={url}>source</a>
+            <a href={`https://github.com/DiscussionBridge/${slug}`}>source</a>
           </li>
         ))}
       </ul>
@@ -81,6 +81,7 @@ const products = [
       <a href="/support/">Visit Alpha Support <span aria-hidden="true">→</span></a>
     </article>
   </section>
+  <p class="release-discussion"><a href={releasesTopic}>Discuss release status on The Bridge →</a></p>
 </SiteLayout>
 
 <style>
