@@ -22,8 +22,9 @@ direction, not release or implementation authority.
 
 ```powershell
 npm ci
+npm audit --omit=dev
 npm run build
-npx --no-install wrangler deploy --dry-run --config wrangler.jsonc
+npm run deploy:dry-run
 ```
 
 `wrangler.jsonc` is the deployment authority. The custom domain is
@@ -35,8 +36,8 @@ SHA-256 is
 `b63b62a40a1283d9b333f1a35c7b44da3976f029c8b2b9548ad2e0388d5f82f9`.
 The 43-member artifact is 43,930 bytes and derives from immutable adapter
 commit `f0610945beedc4cca54c11440d4794ce92b17ff5`. It is a published Alpha.20
-prerelease input; this site source is updated but not deployed, and release
-acceptance remains a separate gate.
+prerelease input. Site-source verification, deployment provenance, and release
+acceptance remain separate gates.
 Canonical adapter source remains in
 [`DiscussionBridge/astro-discussion-bridge`](https://github.com/DiscussionBridge/astro-discussion-bridge).
 

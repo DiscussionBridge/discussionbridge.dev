@@ -2,6 +2,8 @@
 interface Props {
   title?: string;
   description?: string;
+  socialImage?: string;
+  socialImageAlt?: string;
 }
 
 import SocialLinks from "../components/SocialLinks.astro";
@@ -10,6 +12,10 @@ const siteName = "DiscussionBridge";
 const title = Astro.props.title ? `${Astro.props.title} | ${siteName}` : siteName;
 const description = Astro.props.description
   ?? "DiscussionBridge is a family of tools for publishing anywhere while keeping one durable Discourse discussion.";
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const socialImageUrl = Astro.props.socialImage
+  ? new URL(Astro.props.socialImage, Astro.site)
+  : undefined;
 
 ---
 
@@ -19,6 +25,20 @@ const description = Astro.props.description
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#f7f8fb" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    {socialImageUrl && <meta property="og:image" content={socialImageUrl} />}
+    {socialImageUrl && Astro.props.socialImageAlt && <meta property="og:image:alt" content={Astro.props.socialImageAlt} />}
+    <meta name="twitter:card" content={socialImageUrl ? "summary_large_image" : "summary"} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {socialImageUrl && <meta name="twitter:image" content={socialImageUrl} />}
+    {socialImageUrl && Astro.props.socialImageAlt && <meta name="twitter:image:alt" content={Astro.props.socialImageAlt} />}
     <title>{title}</title>
     <style is:global>
       :root {

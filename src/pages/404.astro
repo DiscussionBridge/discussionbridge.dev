@@ -1,0 +1,44 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+---
+
+<SiteLayout
+  title="Page not found"
+  description="The requested DiscussionBridge page could not be found."
+>
+  <section class="not-found">
+    <p class="eyebrow">404</p>
+    <h1>This connection<br />does not exist.</h1>
+    <p class="lede">Try the product overview, downloads, documentation, or live demonstrations.</p>
+    <div class="actions">
+      <a href="/">Product overview</a>
+      <a href="/download/">Downloads</a>
+      <a href="https://docs.discussionbridge.dev/">Documentation</a>
+      <a href="https://demo.discussionbridge.dev/">Live demos</a>
+    </div>
+  </section>
+</SiteLayout>
+
+<style>
+  .not-found {
+    max-width: 760px;
+    padding-block: clamp(48px, 10vw, 120px);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(3rem, 9vw, 6.8rem);
+    letter-spacing: -0.05em;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 22px;
+    margin-top: 30px;
+  }
+
+  .actions a {
+    font-weight: 800;
+  }
+</style>

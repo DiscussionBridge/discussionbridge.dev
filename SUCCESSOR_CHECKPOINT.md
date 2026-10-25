@@ -1,6 +1,6 @@
 # DiscussionBridge Apex Successor Checkpoint
 
-Updated: 2026-09-03 (America/Los_Angeles)
+Updated: 2026-10-25 (America/Los_Angeles)
 
 Repository: `C:\CodeProjects\Sites\DiscussionBridge\discussionbridge.dev\site`
 
@@ -204,3 +204,33 @@ The download wording was then refined to distinguish the current public
 `main` branches from the shared immutable publication tag. Source commit
 `f88feca` is pushed to `origin/main` and deployed as Cloudflare Worker version
 `8cf503d3-2d01-4c59-9f3d-87268907c0a6`.
+
+## 2026-10-25 deployment and presentation tune-up candidate
+
+Phil authorized the joint Astro/Cloudflare audit corrections. The current
+uncommitted candidate adds route-correct canonical, Open Graph, and Twitter
+metadata; a generated sitemap covering static, blog, and guide routes; a
+branded 404 page; baseline static-asset headers; immutable caching for
+fingerprinted `/_astro/` assets; guarded Wrangler deploy/dry-run scripts;
+GitHub verification; and explicit deployment and recovery contracts.
+
+The release gate also exposed a stale vulnerable dependency tree. The
+candidate raises Astro's supported floor to 7.4.1 and Wrangler to 4.152.0,
+and applies compatible patched overrides for DOMPurify 3.4.17,
+sanitize-html 2.18.1, and js-yaml 4.3.2. No DiscussionBridge contract,
+connection policy, source mode, comments mode, or public release claim was
+changed.
+
+Fresh local verification completed successfully: full dependency audit with
+zero vulnerabilities; Astro build producing nine routes including `/404.html` and
+`/sitemap.xml`; generated-output checks for the apex canonical/Open Graph/
+Twitter metadata and the new headers manifest; and Wrangler 4.152.0 dry run
+reading 23 files. No source commit, push, deployment, provider mutation, DNS
+change, or public-site change has yet occurred for this candidate.
+
+Cloudflare Boss independently confirmed that the current public site is
+healthy but that its active Worker version lacks a native Workers Builds
+commit association. Cloudflare Boss is waiting for an exact reviewed commit,
+then will connect the existing `discussionbridge-dev` Worker to the canonical
+GitHub `main` branch without replacing the Worker or changing its domain and
+will prove commit-to-build-to-active-version provenance.
