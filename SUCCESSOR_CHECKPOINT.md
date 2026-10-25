@@ -243,3 +243,12 @@ commit association. Cloudflare Boss is waiting for an exact reviewed commit,
 then will connect the existing `discussionbridge-dev` Worker to the canonical
 GitHub `main` branch without replacing the Worker or changing its domain and
 will prove commit-to-build-to-active-version provenance.
+
+The first pushed candidate failed GitHub Verify run `40240564061` at `npm ci`:
+the lock recorded Miniflare's overridden Undici package as 7.30.1 while its
+dependency edge still named 7.29.1. No provider connection or deployment was
+attempted, and the prior public Worker remained active. The correction binds
+both the Miniflare dependency edge and nested package record to patched
+Undici 7.30.1. A clean install using npm 11.7.0, matching the runner family,
+then completed with zero vulnerabilities. This correction requires a new
+reviewed commit and successful GitHub receipt before Cloudflare work resumes.
