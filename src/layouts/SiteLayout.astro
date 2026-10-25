@@ -4,6 +4,9 @@ interface Props {
   description?: string;
   socialImage?: string;
   socialImageAlt?: string;
+  socialImageWidth?: number;
+  socialImageHeight?: number;
+  socialImageType?: string;
 }
 
 import SocialLinks from "../components/SocialLinks.astro";
@@ -33,6 +36,9 @@ const socialImageUrl = Astro.props.socialImage
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     {socialImageUrl && <meta property="og:image" content={socialImageUrl} />}
+    {socialImageUrl && Astro.props.socialImageWidth && <meta property="og:image:width" content={String(Astro.props.socialImageWidth)} />}
+    {socialImageUrl && Astro.props.socialImageHeight && <meta property="og:image:height" content={String(Astro.props.socialImageHeight)} />}
+    {socialImageUrl && Astro.props.socialImageType && <meta property="og:image:type" content={Astro.props.socialImageType} />}
     {socialImageUrl && Astro.props.socialImageAlt && <meta property="og:image:alt" content={Astro.props.socialImageAlt} />}
     <meta name="twitter:card" content={socialImageUrl ? "summary_large_image" : "summary"} />
     <meta name="twitter:title" content={title} />

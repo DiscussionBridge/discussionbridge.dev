@@ -208,7 +208,7 @@ The download wording was then refined to distinguish the current public
 ## 2026-10-25 deployment and presentation tune-up candidate
 
 Phil authorized the joint Astro/Cloudflare audit corrections. The current
-uncommitted candidate adds route-correct canonical, Open Graph, and Twitter
+site-delivery candidate adds route-correct canonical, Open Graph, and Twitter
 metadata; a generated sitemap covering static, blog, and guide routes; a
 branded 404 page; baseline static-asset headers; immutable caching for
 fingerprinted `/_astro/` assets; guarded Wrangler deploy/dry-run scripts;
@@ -227,6 +227,14 @@ zero vulnerabilities; Astro build producing nine routes including `/404.html` an
 Twitter metadata and the new headers manifest; and Wrangler 4.152.0 dry run
 reading 23 files. No source commit, push, deployment, provider mutation, DNS
 change, or public-site change has yet occurred for this candidate.
+
+The apex page selects the existing approved DiscussionBridge artwork at
+`/media/discussionbridge-open-graph.png` as its page-specific social image.
+The copied PNG is 1731×909 and retains source SHA-256
+`EA273E3D794AF695350C5803E658344B7CA2494787C6D5638E5C3CA698F3AE1C`.
+The layout emits an absolute Open Graph/Twitter URL plus explicit PNG type,
+width, height, and alt text. Other pages can select their own image and do
+not inherit an inaccurate apex image.
 
 Cloudflare Boss independently confirmed that the current public site is
 healthy but that its active Worker version lacks a native Workers Builds
