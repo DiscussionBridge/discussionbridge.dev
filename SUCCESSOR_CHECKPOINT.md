@@ -225,8 +225,9 @@ Fresh local verification completed successfully: full dependency audit with
 zero vulnerabilities; Astro build producing nine routes including `/404.html` and
 `/sitemap.xml`; generated-output checks for the apex canonical/Open Graph/
 Twitter metadata and the new headers manifest; and Wrangler 4.152.0 dry run
-reading 23 files. No source commit, push, deployment, provider mutation, DNS
-change, or public-site change has yet occurred for this candidate.
+reading 23 files. The local candidate is committed above `origin/main`; no push,
+deployment, provider mutation, DNS change, or public-site change has yet occurred.
+Its final identity must be recorded after review closure.
 
 The apex page selects the existing approved DiscussionBridge artwork at
 `/media/discussionbridge-open-graph.png` as its page-specific social image.
