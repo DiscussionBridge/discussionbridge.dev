@@ -45,6 +45,13 @@ const socialImageUrl = Astro.props.socialImage
     <meta name="twitter:description" content={description} />
     {socialImageUrl && <meta name="twitter:image" content={socialImageUrl} />}
     {socialImageUrl && Astro.props.socialImageAlt && <meta name="twitter:image:alt" content={Astro.props.socialImageAlt} />}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9SYR7QENF"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-K9SYR7QENF');
+    </script>
     <title>{title}</title>
     <style is:global>
       :root {
