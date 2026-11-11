@@ -1,7 +1,9 @@
 # DiscussionBridge Apex
 
-This repository independently owns the public product site at
-`discussionbridge.dev`.
+This repository owns the [DiscussionBridge product site](https://discussionbridge.dev/).
+For V4 Alpha source tags and component repositories, see the
+[GitHub organization profile](https://github.com/DiscussionBridge). The site build uses the pinned
+adapter described below.
 
 The public product hierarchy is:
 
